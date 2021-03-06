@@ -85,6 +85,9 @@ const styles = StyleSheet.create({
   },
   userInfoSection: {
     paddingLeft: 20,
+    paddingBottom: 15,
+    borderBottomColor: 'mediumpurple',
+    borderWidth: 2,
   },
   title: {
     color: 'white',

@@ -3,6 +3,7 @@ import {createDrawerNavigator} from '@react-navigation/drawer';
 import {NavigationContainer} from '@react-navigation/native';
 import MainScreen from '../screens/MainScreen';
 import DrawerContent from './DrawerContent';
+import TabNavigation from './TabNavigation';
 
 const Drawer = createDrawerNavigator();
 export default function DrawerNavigation() {
@@ -10,7 +11,7 @@ export default function DrawerNavigation() {
     <Drawer.Navigator
       drawerContent={(props) => <DrawerContent {...props} />}
       initialRouteName="MainScreen">
-      <Drawer.Screen name="MainScreen" component={MainScreen} />
+      <Drawer.Screen name="Home" component={TabNavigation} />
     </Drawer.Navigator>
   );
 }

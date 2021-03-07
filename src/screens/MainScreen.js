@@ -1,9 +1,11 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
+import {useNavigation} from '@react-navigation/core';
 
 export default function MainScreen() {
+  const navigation = useNavigation();
   return (
     <LinearGradient
       start={{x: 0.0, y: 0.25}}
@@ -11,8 +13,12 @@ export default function MainScreen() {
       locations={[0, 0.8]}
       colors={['#20002c', '#1f004d']}
       style={styles.container}>
-      <Icon name="bars" color="white" size={60} />
-      <Text style={{color: 'white'}}>Main Screen</Text>
+      <TouchableOpacity
+        onPress={() => {
+          navigation.openDrawer();
+        }}>
+        <Icon name="bars" color="white" size={40} style={{padding: 15}} />
+      </TouchableOpacity>
     </LinearGradient>
   );
 }
@@ -20,7 +26,5 @@ export default function MainScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 });

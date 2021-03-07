@@ -1,16 +1,7 @@
 import * as React from 'react';
 import {View, StyleSheet} from 'react-native';
 import {DrawerContentScrollView, DrawerItem} from '@react-navigation/drawer';
-import {
-  Avatar,
-  Title,
-  Caption,
-  Paragraph,
-  Drawer,
-  Text,
-  TouchableRipple,
-  Switch,
-} from 'react-native-paper';
+import {Avatar, Title, Caption, Drawer} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
 
 export default function DrawerContent(props) {
@@ -46,7 +37,7 @@ export default function DrawerContent(props) {
             />
             <DrawerItem
               icon={({color, size}) => (
-                <Icon name="home" color={'white'} size={size} />
+                <Icon name="inbox" color={'white'} size={size} />
               )}
               label="Markets"
               labelStyle={{color: 'white'}}
@@ -56,7 +47,7 @@ export default function DrawerContent(props) {
             />
             <DrawerItem
               icon={({color, size}) => (
-                <Icon name="home" color={'white'} size={size} />
+                <Icon name="bitcoin" color={'white'} size={size} />
               )}
               label="My Coins"
               labelStyle={{color: 'white'}}
@@ -68,7 +59,7 @@ export default function DrawerContent(props) {
       <Drawer.Section style={styles.bottomDrawerSection}>
         <DrawerItem
           icon={({color, size}) => (
-            <Icon name="home" color={'white'} size={size} />
+            <Icon name="close" color={'white'} size={size} />
           )}
           label="Sign Out"
           labelStyle={{color: 'white'}}

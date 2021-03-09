@@ -42,7 +42,7 @@ export default function DrawerContent(props) {
               label="Markets"
               labelStyle={{color: 'white'}}
               onPress={() => {
-                props.navigation.navigate('TodoApp');
+                props.navigation.navigate('MarketsScreen');
               }}
             />
             <DrawerItem
@@ -51,7 +51,9 @@ export default function DrawerContent(props) {
               )}
               label="My Coins"
               labelStyle={{color: 'white'}}
-              onPress={() => {}}
+              onPress={() => {
+                props.navigation.navigate('MyCoinsScreen');
+              }}
             />
           </Drawer.Section>
         </View>

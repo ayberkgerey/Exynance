@@ -12,10 +12,7 @@ export default function DrawerContent(props) {
           <View style={styles.userInfoSection}>
             <View style={{flexDirection: 'row', marginTop: 25}}>
               <Avatar.Image
-                source={{
-                  uri:
-                    'https://scontent.fsaw1-8.fna.fbcdn.net/v/t1.0-9/130723000_4211508225532570_7042456428318549288_o.jpg?_nc_cat=110&ccb=2&_nc_sid=09cbfe&_nc_ohc=iU8UMBxNvToAX9PoFV9&_nc_ht=scontent.fsaw1-8.fna&oh=36cda3049b68764375781f45211cb566&oe=600EC911',
-                }}
+                source={require('../../assets/darthvader.jpg')}
                 size={50}
               />
               <View style={{marginLeft: 15, flexDirection: 'column'}}>
@@ -79,7 +76,7 @@ const styles = StyleSheet.create({
   userInfoSection: {
     paddingLeft: 20,
     paddingBottom: 15,
-    borderBottomColor: 'mediumpurple',
+    borderBottomColor: '#acee0f',
     borderWidth: 2,
   },
   title: {

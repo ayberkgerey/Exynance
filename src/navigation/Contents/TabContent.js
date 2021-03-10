@@ -29,6 +29,12 @@ export default function TabContent() {
         }}>
         <Icon name="bitcoin" color={'#acee0f'} size={35} />
       </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => {
+          navigation.openDrawer();
+        }}>
+        <Icon name="bars" color="#acee0f" size={35} />
+      </TouchableOpacity>
     </View>
   );
 }

@@ -5,16 +5,7 @@ import {useNavigation} from '@react-navigation/core';
 
 export default function MyCoinsScreen() {
   const navigation = useNavigation();
-  return (
-    <View style={styles.container}>
-      <TouchableOpacity
-        onPress={() => {
-          navigation.openDrawer();
-        }}>
-        <Icon name="bars" color="#acee0f" size={40} style={{padding: 15}} />
-      </TouchableOpacity>
-    </View>
-  );
+  return <View style={styles.container} />;
 }
 
 const styles = StyleSheet.create({

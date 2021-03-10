@@ -1,9 +1,11 @@
 import React, {useEffect} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
+import {Avatar} from 'react-native-paper';
 
 export default function CoinCard() {
   return (
     <View style={styles.container}>
+      <Avatar.Image source={require('../assets/mint.jpg')} size={36} />
       <Text style={styles.textStyle}>Name</Text>
       <Text style={styles.textStyle}>Value</Text>
       <Text style={styles.textStyle}>Raise</Text>
@@ -19,7 +21,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     width: '100%',
-    height: '20%',
+    height: '7%',
     flexDirection: 'row',
   },
   textStyle: {

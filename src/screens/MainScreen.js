@@ -8,19 +8,14 @@ export default function MainScreen() {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
-      <TouchableOpacity
-        onPress={() => {
-          navigation.openDrawer();
-        }}>
-        <Icon name="bars" color="#acee0f" size={40} style={{padding: 15}} />
-        <CoinCard />
-      </TouchableOpacity>
+      <CoinCard />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
+    paddingTop: 20,
     flex: 1,
     backgroundColor: '#171717',
   },

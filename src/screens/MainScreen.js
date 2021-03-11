@@ -3,19 +3,21 @@ import {View, StyleSheet, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
 import {useNavigation} from '@react-navigation/core';
 import CoinCard from '../components/CoinCard';
+import CoinList from '../components/CoinList';
 
 export default function MainScreen() {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <CoinCard />
+      <CoinList />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 20,
+    paddingTop: 24,
     flex: 1,
     backgroundColor: '#171717',
   },

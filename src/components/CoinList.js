@@ -1,34 +1,28 @@
 import React, {useEffect, useState, useContext} from 'react';
-import {View, Text} from 'react-native';
-import CoinGecko from '../api/CoinGecko';
-import {CoinContext} from '../context/CoinProvider';
+import {View, Text, StyleSheet, FlatList} from 'react-native';
+import {CoinContext} from "../context/CoinProvider";
+import CoinCard from "./CoinCard";
 
 export default function CoinList() {
-  const [coins, setCoins] = useState([]);
-  const watchList = useContext(CoinContext);
-  const [isLoading, setIsLoading] = useState(false);
-
-  console.log(watchList);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      setIsLoading(true);
-      const response = await CoinGecko.get('/coins/markets', {
-        params: {
-          vs_currency: 'usd',
-          ids: 'bitcoin',
-        },
-      });
-      setCoins(response.data);
-      console.log('data : ' + JSON.stringify(coins));
-      setIsLoading(false);
-    };
-    fetchData();
-  });
+  const coins = useContext(CoinContext)
 
   return (
-    <View>
-      <Text>CoinList</Text>
+    <View style={styles.container}>
+      <FlatList
+        keyExtractor={(item, index) => item.symbol.toString()}
+        data={coins.coins}
+        renderItem={({item}) => (
+          <View>
+            <CoinCard symbol={item.symbol} current_price={item.current_price} price_change={item.price_change_percentage_24h} />
+          </View>
+        )}
+      />
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});

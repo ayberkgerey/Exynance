@@ -42,7 +42,7 @@ export default function TabContent() {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#171717',
-    height: 46,
+    height: 60,
     justifyContent: 'space-between',
     alignItems: 'center',
     flexDirection: 'row',

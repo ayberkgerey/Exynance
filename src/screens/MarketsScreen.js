@@ -1,7 +1,7 @@
 import React from 'react';
-import {StyleSheet, TouchableOpacity, View,ScrollView} from 'react-native';
+import {StyleSheet, TouchableOpacity, View, ScrollView} from 'react-native';
 import {useNavigation} from '@react-navigation/core';
-import CoinList from "../components/CoinList";
+import CoinList from '../components/CoinList';
 
 export default function MarketsScreen() {
   const navigation = useNavigation();
@@ -17,5 +17,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     backgroundColor: '#171717',
+    paddingTop: 20,
   },
 });

@@ -3,9 +3,11 @@ import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import {Avatar} from 'react-native-paper';
 
 export default function CoinCard(props) {
+  const image = props.image;
+
   return (
-    <TouchableOpacity style={styles.container}>
-      <Avatar.Image source={require('../assets/mint.jpg')} size={36} />
+    <View style={styles.container}>
+      <Avatar.Image source={{uri: image}} size={36} />
       <View style={{width: '30%'}}>
         <Text style={styles.textStyle1}>{props.symbol}</Text>
       </View>
@@ -15,7 +17,7 @@ export default function CoinCard(props) {
       <View style={{width: '30%'}}>
         <Text style={styles.textStyle3}>{props.price_change}</Text>
       </View>
-    </TouchableOpacity>
+    </View>
   );
 }
 

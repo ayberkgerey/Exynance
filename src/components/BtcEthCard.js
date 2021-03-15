@@ -1,17 +1,65 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {Avatar} from 'react-native-paper';
+import CoinGecko from '../api/CoinGecko';
 
 export default function BtcEthCard() {
+  const [btc, setBtc] = useState([]);
+  const [eth, setEth] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await CoinGecko.get('/simple/price', {
+        params: {
+          vs_currencies: 'usd',
+          ids: 'bitcoin,ethereum',
+        },
+      });
+      setBtc(response.data.bitcoin);
+      setEth(response.data.ethereum);
+    };
+    fetchData();
+  });
+
   return (
     <View style={styles.container}>
       <View style={styles.btcView}>
-        <Avatar.Image source={require('../assets/darthvader.jpg')} size={45} />
+        <Avatar.Image
+          source={{
+            uri:
+              'https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579',
+          }}
+          size={45}
+        />
         <Text style={styles.btcText}>BTC</Text>
+        <Text
+          style={{
+            fontWeight: 'bold',
+            color: 'white',
+            marginLeft: 24,
+            fontSize: 23,
+          }}>
+          {JSON.stringify(btc.usd)}
+        </Text>
       </View>
       <View style={styles.ethView}>
+        <Text
+          style={{
+            fontWeight: 'bold',
+            color: 'white',
+            marginRight: 15,
+            fontSize: 23,
+          }}>
+          {JSON.stringify(eth.usd)}
+        </Text>
         <Text style={styles.ethText}>ETH</Text>
-        <Avatar.Image source={require('../assets/darthvader.jpg')} size={45} />
+        <Avatar.Image
+          source={{
+            uri:
+              'https://assets.coingecko.com/coins/images/279/large/ethereum.png?1595348880',
+          }}
+          size={45}
+        />
       </View>
     </View>
   );

@@ -1,28 +1,27 @@
 import React, {useEffect, useState, useContext} from 'react';
-import {View, Text, StyleSheet, FlatList} from 'react-native';
+import {View, Text, SafeAreaView, StyleSheet, FlatList} from 'react-native';
 import CoinCard from './CoinCard';
 import CoinGecko from '../api/CoinGecko';
 
 export default function CoinList() {
   const [coins, setCoins] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+
+  const fetchData = async () => {
+    const response = await CoinGecko.get('/coins/markets', {
+      params: {
+        vs_currency: 'usd',
+        page: 1,
+      },
+    });
+    setCoins(response.data);
+  };
 
   useEffect(() => {
-    const fetchData = async () => {
-      setIsLoading(true);
-      const response = await CoinGecko.get('/coins/markets', {
-        params: {
-          vs_currency: 'usd',
-        },
-      });
-      setCoins(response.data);
-      setIsLoading(false);
-    };
     fetchData();
-  });
+  }, []);
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <FlatList
         keyExtractor={(item, index) => item.symbol.toString()}
         data={coins}
@@ -37,7 +36,7 @@ export default function CoinList() {
           </View>
         )}
       />
-    </View>
+    </SafeAreaView>
   );
 }
 

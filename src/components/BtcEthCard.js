@@ -8,17 +8,21 @@ export default function BtcEthCard() {
   const [eth, setEth] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      const response = await CoinGecko.get('/simple/price', {
-        params: {
-          vs_currencies: 'usd',
-          ids: 'bitcoin,ethereum',
-        },
-      });
-      setBtc(response.data.bitcoin);
-      setEth(response.data.ethereum);
-    };
-    fetchData();
+    const intervalId = setInterval(() => {
+      const fetchData = async () => {
+        const response = await CoinGecko.get('/simple/price', {
+          params: {
+            vs_currencies: 'usd',
+            ids: 'bitcoin,ethereum',
+          },
+        });
+        setBtc(response.data.bitcoin);
+        setEth(response.data.ethereum);
+      };
+      fetchData();
+    }, 2000);
+
+    return () => clearInterval(intervalId);
   });
 
   return (
@@ -47,7 +51,7 @@ export default function BtcEthCard() {
           style={{
             fontWeight: 'bold',
             color: 'white',
-            marginRight: 15,
+            marginRight: 7,
             fontSize: 23,
           }}>
           {JSON.stringify(eth.usd)}

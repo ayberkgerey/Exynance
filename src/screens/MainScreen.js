@@ -14,9 +14,7 @@ export default function MainScreen() {
           source={require('../assets/12345.png')}
           style={styles.imageLayout}
         />
-        <View style={styles.fourcoinStyle}>
-          <FourCoin />
-        </View>
+        <FourCoin />
       </View>
     </View>
   );

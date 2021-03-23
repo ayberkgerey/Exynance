@@ -1,7 +1,5 @@
 import React from 'react';
-import {View, Image, Text, StyleSheet, TouchableOpacity} from 'react-native';
-import {useNavigation} from '@react-navigation/core';
-import CoinList from '../components/CoinList';
+import {View, Image, StyleSheet} from 'react-native';
 import BtcEthCard from '../components/BtcEthCard';
 import FourCoin from '../components/FourCoin';
 
@@ -14,7 +12,9 @@ export default function MainScreen() {
           source={require('../assets/12345.png')}
           style={styles.imageLayout}
         />
-        <FourCoin />
+        <View style={styles.fourcoinStyle}>
+          <FourCoin />
+        </View>
       </View>
     </View>
   );

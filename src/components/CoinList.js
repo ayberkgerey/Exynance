@@ -3,13 +3,13 @@ import {View, Text, SafeAreaView, StyleSheet, FlatList} from 'react-native';
 import CoinCard from './CoinCard';
 import CoinGecko from '../api/CoinGecko';
 
-export default function CoinList(props) {
+export default function CoinList() {
   const [coins, setCoins] = useState([]);
 
   const fetchData = async () => {
     const response = await CoinGecko.get('/coins/markets', {
       params: {
-        vs_currency: props.entry,
+        vs_currency: 'usd',
         page: 1,
       },
     });
@@ -18,7 +18,7 @@ export default function CoinList(props) {
 
   useEffect(() => {
     fetchData();
-  });
+  }, []);
 
   return (
     <SafeAreaView style={styles.container}>
